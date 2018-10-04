@@ -1,11 +1,8 @@
 version: 2
 jobs:
-  executorType: docker
-containerInfo:
-  - image: node:alpine
-stages:
   build:
-    workDir: /home/circleci/project
+    docker: # use the docker executor type; machine and macos executors are also supported
+      - image: node:alpine
     steps:
       - type: shell
         shell: /bin/sh
@@ -20,7 +17,6 @@ stages:
       - image: selenium/standalone-chrome:3.1.0
     steps:
       - checkout
-      - clone https://github.com/aswinin18/HelloTest.git ~/RepoLocation
       - run: mkdir test-reports
       - run:
           name: clone repo
