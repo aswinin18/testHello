@@ -6,3 +6,21 @@ jobs:
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
+  test:
+    docker:
+      - image: circleci/node-jessie-browsers
+    steps:
+          name: clone repo
+          command: git clone https://github.com/aswinin18/HelloTest.git ~/RepoLocation
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
