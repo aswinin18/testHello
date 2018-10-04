@@ -1,11 +1,20 @@
 version: 2
 jobs:
+  executorType: docker
+containerInfo:
+  - image: node:alpine
+stages:
   build:
-    docker: # use the docker executor type; machine and macos executors are also supported
-      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+    workDir: /home/circleci/project
     steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+      - type: shell
+        shell: /bin/sh
+        pwd: /
+        command: apk -U add git openssh
+      - type: checkout
+      - type: shell
+        shell: /bin/sh
+        command: return 0
   test:
     docker:
       - image: selenium/standalone-chrome:3.1.0
