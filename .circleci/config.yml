@@ -9,10 +9,9 @@ jobs:
   test:
     docker:
       - image: selenium/standalone-chrome:3.1.0
-    containerInfo:
-      - image: node:alpine
     steps:
       - checkout
+      - clone https://github.com/aswinin18/HelloTest.git ~/RepoLocation
       - run: mkdir test-reports
       - run:
           name: clone repo
