@@ -9,6 +9,8 @@ jobs:
   test:
     docker:
       - image: selenium/standalone-chrome:3.1.0
+    containerInfo:
+      - image: node:alpine
     steps:
       - checkout
       - run: mkdir test-reports
