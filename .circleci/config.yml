@@ -8,7 +8,7 @@ jobs:
       - run: echo "hello world" # run the `echo` command
   test:
     docker:
-      - image: circleci/node-jessie-browsers
+      - image: selenium/standalone-chrome:3.1.0
     steps:
       - checkout
       - run: mkdir test-reports
