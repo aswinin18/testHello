@@ -30,8 +30,7 @@ jobs:
           command: git clone https://github.com/aswinin18/HelloTest.git ~/RepoLocation
       - run:
           name: execute testng
-          command: pwd
-          command: cd RepoLocation     
+          command: pwd 
       - run:
           name: Start Selenium
           command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
