@@ -19,10 +19,12 @@ jobs:
       - image: ruby:latest
     steps:
       - checkout
-      - run: mkdir test-reports
       - run:
-          name: clone repo
-          command: git clone https://github.com/aswinin18/HelloTest.git ~/RepoLocation
+          name: get git
+          command: sudo apt-get update
+      - run:
+          name: install git
+          command: sudo apt-get install git
       - run:
           name: Start Selenium
           command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
