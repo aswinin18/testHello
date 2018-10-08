@@ -24,7 +24,7 @@ jobs:
           command: sudo apt-get update
       - run:
           name: install git
-          command: sudo apt-get install git
+          command: sudo apt-get --assume-yes install git
       - run:
           name: Start Selenium
           command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
