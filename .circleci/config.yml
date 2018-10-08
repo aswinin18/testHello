@@ -20,7 +20,7 @@ jobs:
       - run: mkdir test-reports
       - run:
           name: install git
-          command: sudo dnf install git-all
+          command: sudo apt install git-all
       - run:
           name: clone repo
           command: git clone https://github.com/aswinin18/HelloTest.git ~/RepoLocation
