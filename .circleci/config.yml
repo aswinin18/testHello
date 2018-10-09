@@ -12,7 +12,7 @@ jobs:
       - type: shell
         shell: /bin/sh
         command: return 0
-  test:
+  test1:
     docker:
       - image: "selenium/standalone-chrome:3.1.0"
       - image: "circleci/openjdk:8-jdk-browsers"
@@ -45,7 +45,7 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test:
+      - test1:
           requires:
             - build
           filters:
