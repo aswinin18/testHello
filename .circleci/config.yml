@@ -15,7 +15,7 @@ jobs:
   test:
     docker:
       - image: selenium/standalone-chrome:3.1.0
-      - image: docker:git
+      - image: maven
       - image: ruby:latest
     steps:
       - checkout
@@ -34,6 +34,9 @@ jobs:
       - run:
           name: show files
           command: ls    
+      - run:
+          name: maven image
+          command: maven
       - run:
           name: Start Selenium
           command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
