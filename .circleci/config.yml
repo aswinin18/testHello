@@ -14,8 +14,8 @@ jobs:
         command: return 0
   test:
     docker:
-      - image: selenium/standalone-chrome:3.1.0
-      - image: maven
+      - image: "selenium/standalone-chrome:3.1.0"
+      - image: "maven:4.0.0-alpine"
     steps:
       - checkout
       - run:
@@ -35,7 +35,7 @@ jobs:
           command: ls    
       - run:
           name: maven image
-          command: mvn clean install
+          command: mvn clean test
       - run:
           name: Start Selenium
           command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
