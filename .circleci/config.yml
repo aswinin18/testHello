@@ -32,7 +32,9 @@ jobs:
       - run:
           name: show files
           command: ls    
+    docker:      
       - image: "circleci/openjdk:8-jdk-browsers"
+    steps:
       - run:
           name: maven image
           command: mvn clean test
