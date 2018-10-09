@@ -15,7 +15,7 @@ jobs:
   test:
     docker:
       - image: "selenium/standalone-chrome:3.1.0"
-      - image: "maven:4.0.0-alpine"
+      - image: "maven"
     steps:
       - checkout
       - run:
