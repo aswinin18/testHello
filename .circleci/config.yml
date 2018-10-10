@@ -37,6 +37,9 @@ jobs:
       - image: "circleci/openjdk:8-jdk-browsers"
     steps:       
       - run:
+          name: clone repo again
+          command: git clone https://github.com/aswinin18/HelloTest.git
+      - run:
           name: check fp
           command: pwd 
       - run:
