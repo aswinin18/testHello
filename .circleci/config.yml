@@ -16,22 +16,12 @@ jobs:
     docker:
       - image: "circleci/openjdk:8-jdk-browsers"
     steps:
-      - checkout
       - run:
           name: get git
           command: sudo apt-get update
       - run:
           name: install git
           command: sudo apt-get --assume-yes install git
-      - run:
-          name: clone repo
-          command: git clone https://github.com/aswinin18/HelloTest.git ~/RepoLocation
-      - run:
-          name: execute testng
-          command: pwd
-      - run:
-          name: show files
-          command: ls 
   test2:
     docker:
       - image: "circleci/openjdk:8-jdk-browsers"
@@ -39,6 +29,7 @@ jobs:
       - run:
           name: clone repo again
           command: git clone https://github.com/aswinin18/HelloTest.git
+      - run: cd HelloTest
       - run:
           name: check fp
           command: pwd 
