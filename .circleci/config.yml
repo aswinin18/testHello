@@ -29,16 +29,15 @@ jobs:
       - run:
           name: clone repo again
           command: git clone https://github.com/aswinin18/HelloTest.git
-      - run: cd HelloTest
       - run:
-          name: check fp
-          command: pwd 
+          name: cd & pwd
+          command: cd /home/circleci/project/HelloTest && pwd 
       - run:
           name: show files again
-          command: ls 
+          command: cd /home/circleci/project/HelloTest && ls 
       - run:
           name: maven image
-          command: mvn clean test
+          command: cd /home/circleci/project/HelloTest && mvn clean test
 workflows:
   version: 2
   build_and_test:
