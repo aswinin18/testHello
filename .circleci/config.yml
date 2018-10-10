@@ -35,6 +35,7 @@ jobs:
       - run:
           name: show files again
           command: cd /home/circleci/project/HelloTest && ls 
+      - run: chmod rwx /home/circleci/project/HelloTest/chromedriver.exe
       - run:
           name: maven image
           command: cd /home/circleci/project/HelloTest && mvn clean test
