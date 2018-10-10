@@ -37,6 +37,12 @@ jobs:
       - image: "circleci/openjdk:8-jdk-browsers"
     steps:       
       - run:
+          name: check fp
+          command: pwd 
+      - run:
+          name: show files again
+          command: ls 
+      - run:
           name: maven image
           command: mvn clean test
 workflows:
