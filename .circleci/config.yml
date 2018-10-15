@@ -43,7 +43,7 @@ jobs:
           path: /home/circleci/project/HelloTest/test-output/emailable-report.html
       # Upload test results
       - store_test_results:
-        path: ~/test-output
+          path: /home/circleci/project/HelloTest/test-output
 workflows:
   version: 2
   build_and_test:
