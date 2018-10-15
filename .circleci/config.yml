@@ -39,6 +39,8 @@ jobs:
       - run:
           name: maven image
           command: cd /home/circleci/project/HelloTest && mvn clean test
+      - store_test_results:
+          path: /test-output/emailable-report.html
 workflows:
   version: 2
   build_and_test:
