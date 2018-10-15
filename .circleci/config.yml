@@ -42,7 +42,7 @@ jobs:
       - store_artifacts:
           path: /home/circleci/project/HelloTest/test-output/emailable-report.html
       # Upload test results
-      - type: store_test_results:
+      - store_test_results:
         path: ~/test-output
 workflows:
   version: 2
