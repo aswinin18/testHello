@@ -38,9 +38,12 @@ jobs:
       - run: chmod 777 /home/circleci/project/HelloTest/chromedriver
       - run:
           name: maven image
-          command: cd /home/circleci/project/HelloTest && mvn clean test
+          command: cd /home/circleci/project/HelloTest && mvn clean test  
       - store_artifacts:
           path: /home/circleci/project/HelloTest/test-output/emailable-report.html
+      # Upload test results
+      - type: test-results-store
+        path: /home/circleci/project/HelloTest/test-output/emailable-report.html
 workflows:
   version: 2
   build_and_test:
