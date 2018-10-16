@@ -12,7 +12,7 @@ jobs:
       - type: shell
         shell: /bin/sh
         command: return 0
-  test1:
+  test:
     docker:
       - image: "circleci/openjdk:8-jdk-browsers"
     steps:
@@ -22,10 +22,10 @@ jobs:
       - run:
           name: install git
           command: sudo apt-get --assume-yes install git
-  test2:
-    docker:
-      - image: "circleci/openjdk:8-jdk-browsers"
-    steps:       
+  #test2:
+   # docker:
+    #  - image: "circleci/openjdk:8-jdk-browsers"
+    #steps:       
       - run:
           name: clone repo again
           command: git clone https://github.com/aswinin18/HelloTest.git
@@ -49,12 +49,12 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test1:
+      - test:
           requires:
             - build
-      - test2:
-          requires:
-            - test1
+      #- test2:
+        #  requires:
+        #    - test1
           filters:
             branches:
               only: master		  
