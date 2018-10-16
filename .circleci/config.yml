@@ -13,19 +13,11 @@ jobs:
           command: |
            sudo apt-get update
            sudo apt-get --assume-yes install git      
-      - run:
-          name: clone repo again
-          command: git clone https://github.com/aswinin18/HelloTest.git
-      - run:
-          name: cd & pwd
-          command: cd /home/circleci/project/HelloTest && pwd 
-      - run:
-          name: show files again
-          command: cd /home/circleci/project/HelloTest && ls 
-      - run: chmod 777 /home/circleci/project/HelloTest/chromedriver
-      - run:
-          name: maven image
-          command: cd /home/circleci/project/HelloTest && mvn clean test  
+           git clone https://github.com/aswinin18/HelloTest.git
+           cd /home/circleci/project/HelloTest && pwd 
+           cd /home/circleci/project/HelloTest && ls 
+           chmod 777 /home/circleci/project/HelloTest/chromedriver
+           cd /home/circleci/project/HelloTest && mvn clean test  
       - store_artifacts:
           path: /home/circleci/project/HelloTest/test-output/emailable-report.html
       # Upload test results
