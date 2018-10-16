@@ -4,14 +4,7 @@ jobs:
     docker: # use the docker executor type; machine and macos executors are also supported
       - image: node:alpine
     steps:
-      - type: shell
-        shell: /bin/sh
-        pwd: /
-        command: apk -U add git openssh
-      - type: checkout
-      - type: shell
-        shell: /bin/sh
-        command: return 0
+      - command: echo Hello World
   test:
     docker:
       - image: "circleci/openjdk:8-jdk-browsers"
@@ -21,11 +14,7 @@ jobs:
           command: sudo apt-get update
       - run:
           name: install git
-          command: sudo apt-get --assume-yes install git
-  #test2:
-   # docker:
-    #  - image: "circleci/openjdk:8-jdk-browsers"
-    #steps:       
+          command: sudo apt-get --assume-yes install git      
       - run:
           name: clone repo again
           command: git clone https://github.com/aswinin18/HelloTest.git
