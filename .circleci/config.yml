@@ -13,7 +13,7 @@ jobs:
       - run:
           name: get git
           command: sudo apt-get update
-                   sudo apt-get --assume-yes install git      
+          command: sudo apt-get --assume-yes install git      
       - run:
           name: clone repo again
           command: git clone https://github.com/aswinin18/HelloTest.git
