@@ -14,8 +14,6 @@ jobs:
            sudo apt-get update
            sudo apt-get --assume-yes install git      
            git clone https://github.com/aswinin18/HelloTest.git
-           cd /home/circleci/project/HelloTest && pwd 
-           cd /home/circleci/project/HelloTest && ls 
            chmod 777 /home/circleci/project/HelloTest/chromedriver
            cd /home/circleci/project/HelloTest && mvn clean test  
       - store_artifacts:
@@ -31,9 +29,6 @@ workflows:
       - test:
           requires:
             - build
-      #- test2:
-        #  requires:
-        #    - test1
           filters:
             branches:
               only: master		  
