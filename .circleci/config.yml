@@ -11,6 +11,7 @@ jobs:
       - image: "circleci/openjdk:8-jdk-browsers"
     steps:
       - run:
+          name: Install
           command: |
           sudo apt-get update
           sudo apt-get --assume-yes install git      
