@@ -14,7 +14,7 @@ jobs:
            sudo apt-get update
            sudo apt-get --assume-yes install git      
            git clone https://github.com/aswinin18/HelloTest.git
-           ls -l /home/circleci/project/HelloTest/chromedriver
+           chmod 777 /home/circleci/project/HelloTest/chromedriver
            cd /home/circleci/project/HelloTest && mvn clean test  
       - store_artifacts:
           path: /home/circleci/project/HelloTest/test-output/emailable-report.html
