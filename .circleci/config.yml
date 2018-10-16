@@ -10,9 +10,9 @@ jobs:
     docker:
       - image: "circleci/openjdk:8-jdk-browsers"
     steps:
-      - run:
-          name: Install
-          command:
+     - run:
+     command: |
+      echo Running test
           sudo apt-get update
           sudo apt-get --assume-yes install git      
           git clone https://github.com/aswinin18/HelloTest.git
