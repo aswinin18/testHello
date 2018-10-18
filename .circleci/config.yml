@@ -13,10 +13,10 @@ jobs:
           command: |
            sudo apt-get update
            sudo apt-get --assume-yes install git
-           mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config 
            git clone https://ashwinionos:ashwini1805@github.com/ionosnetworks/Adx-Selenium.git
-           chmod 777 /home/circleci/project/HelloTest/chromedriver
-           cd /home/circleci/project/HelloTest && mvn clean test  
+           cd /home/circleci/project && ls
+           chmod 777 /home/circleci/project/chromedriver
+           cd /home/circleci/project && mvn clean test  
       - store_artifacts:
           path: /home/circleci/project/HelloTest/test-output/emailable-report.html
       # Upload test results
