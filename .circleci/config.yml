@@ -13,14 +13,14 @@ jobs:
           command: |
            sudo apt-get update
            sudo apt-get --assume-yes install git
-           git clone https://ashwinionos:ashwini1805@github.com/ionosnetworks/Adx-Selenium.git
-           chmod 777 /home/circleci/project/chromedriver
-           cd /home/circleci/project && mvn clean test  
+           git clone https://ashwinionos:ashwini1805@github.com/ionosnetworks/Adx-Selenium.git 
+           chmod 777 /home/circleci/project/Adserve/chromedriver
+           cd /home/circleci/project/Adserve && mvn clean test  
       - store_artifacts:
-          path: /home/circleci/project/HelloTest/test-output/emailable-report.html
+          path: /home/circleci/project/Adserve/test-output/emailable-report.html
       # Upload test results
       - store_test_results:
-          path: /home/circleci/project/HelloTest/test-output
+          path: /home/circleci/project/Adserve/test-output
 workflows:
   version: 2
   build_and_test:
