@@ -10,10 +10,9 @@ jobs:
       - image: "circleci/openjdk:8-jdk-browsers"
     steps:
       - run:
-          command: |
-           sudo apt-get update
-           sudo apt-get --assume-yes install git
-           git clone https://ashwinionos:ashwini1805@github.com/ionosnetworks/Adx-Selenium.git 
+          command: sudo apt-get update
+          command: sudo apt-get --assume-yes install git
+          command: git clone https://ashwinionos:ashwini1805@github.com/ionosnetworks/Adx-Selenium.git 
           command: cd /home/circleci/project && ls 
           command: chmod 777 /home/circleci/project/Adx-Selenium/Adserve/chromedriver
           command: cd /home/circleci/project/Adx-Selenium/Adserve && mvn clean test  
