@@ -26,8 +26,9 @@ jobs:
       - run:
           command: |
            sudo apt-get update
-           sudo apt-get --assume-yes install git      
-           git clone https://github.com/aswinin18/HelloTest.git
+           sudo apt-get --assume-yes install git
+           mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config 
+           git clone git@github.com:ionosnetworks/Adx-Selenium.git
            chmod 777 /home/circleci/project/HelloTest/chromedriver
            cd /home/circleci/project/HelloTest && mvn clean test  
       - store_artifacts:
