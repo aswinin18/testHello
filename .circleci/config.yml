@@ -2,9 +2,23 @@ version: 2
 jobs:
   build:
     docker: # use the docker executor type; machine and macos executors are also supported
-      - image: node:alpine
+      - image: circleci/node:8
+    working_directory: ~/build
     steps:
-      - run: echo Hello World
+      - checkout
+      # ... steps for building/testing app ...
+      - setup_remote_docker:
+          docker_layer_caching: false
+      - run: |
+            docker build -t docker.livereachmedia.com/ad-manager-ng:v-$CIRCLE_SHA1 .
+      - deploy:
+          command: |
+            IMAGE_TAG=v-${CIRCLE_SHA1}
+            APP_ID=$(cat marathon.json | jq -r '.id')
+            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin docker.livereachmedia.com
+            docker push docker.livereachmedia.com/ad-manager-ng:v-$CIRCLE_SHA1
+            cat marathon.json | jq '.container.docker.image = "docker.livereachmedia.com/ad-manager-ng:'"$IMAGE_TAG"'"' > /tmp/marathon.json
+            curl -s -u "circleci:$MARATHON_PASS" -X PUT -H "Content-type: application/json" https://marathon.livereachmedia.com/v2/apps/$APP_ID?force=true -d"@/tmp/marathon.json" | jq           
   test:
     docker:
       - image: "circleci/openjdk:8-jdk-browsers"
