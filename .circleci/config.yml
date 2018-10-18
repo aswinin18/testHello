@@ -14,9 +14,8 @@ jobs:
            sudo apt-get update
            sudo apt-get --assume-yes install git
            git clone https://ashwinionos:ashwini1805@github.com/ionosnetworks/Adx-Selenium.git
-           cd /home/circleci/project && ls
-           chmod 777 /home/circleci/project/chromedriver
-           cd /home/circleci/project && mvn clean test  
+           chmod 777 /home/circleci/project/Adx-Selenium/chromedriver
+           cd /home/circleci/project/Adx-Selenium && mvn clean test  
       - store_artifacts:
           path: /home/circleci/project/HelloTest/test-output/emailable-report.html
       # Upload test results
